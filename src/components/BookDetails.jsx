@@ -48,24 +48,27 @@ const BookDetails = () => {
                             )
                         }
                     </div>
-                        <table class="table table-zebra -ml-2 lg:w-2/3 w-full">
-                            <tr>
-                                <td className='text-gray-500 text-[16px]'>Number of Pages:</td>
-                                <th className='text-black font-bold text-[16px]'>{totalPages}</th>
-                            </tr>
-                            <tr>
-                                <td className='text-gray-500 text-[16px]'>Publisher:</td>
-                                <td className='text-black font-bold text-[16px]'>{publisher}</td>
-                            </tr>
-                            <tr>
-                                <td className='text-gray-500 text-[16px]'>Year of Publishing</td>
-                                <td className='text-black font-bold text-[16px]'>{yearOfPublishing}</td>
-                            </tr>
-                            <tr>
-                                <td className='text-gray-500 text-[16px]'>Rating:</td>
-                                <td className='text-black font-bold text-[16px]'>{rating}</td>
-                            </tr>
-                        </table>
+                    <table className="table table-zebra -ml-2 lg:w-2/3 w-full">
+                    <tbody> {/* Add this <tbody> tag */}
+                        <tr>
+                        <td className="text-gray-500 text-[16px]">Number of Pages:</td>
+                        <th className="text-black font-bold text-[16px]">{totalPages}</th>
+                        </tr>
+                        <tr>
+                        <td className="text-gray-500 text-[16px]">Publisher:</td>
+                        <td className="text-black font-bold text-[16px]">{publisher}</td>
+                        </tr>
+                        <tr>
+                        <td className="text-gray-500 text-[16px]">Year of Publishing</td>
+                        <td className="text-black font-bold text-[16px]">{yearOfPublishing}</td>
+                        </tr>
+                        <tr>
+                        <td className="text-gray-500 text-[16px]">Rating:</td>
+                        <td className="text-black font-bold text-[16px]">{rating}</td>
+                        </tr>
+                    </tbody> {/* Close the <tbody> tag */}
+                    </table>
+
                     <div className='gap-5 flex'>
                         <button onClick={() => markAsRead(singleBook.bookId)} className='btn btn-small'>Mark As Read</button>
                         <button onClick={() => addTOwidhList(singleBook.bookId)} className='btn btn-small btn-success text-white'>Add To Wishlist</button>

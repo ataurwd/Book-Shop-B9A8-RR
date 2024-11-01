@@ -8,6 +8,7 @@ import Book from '../Home/Book';
 
 const ReadPage = () => {
     const [book, setBook] =useState([])
+    const [sort, setSort] =useState('')
     const bookData = useLoaderData()
     useEffect(() => {
         const storedData = getStoreList()
@@ -16,9 +17,33 @@ const ReadPage = () => {
         setBook(readBookData)
     }, [])
     
+
+    const handelSort = sortType => {
+        setSort(sortType)
+
+        if(sortType === 'ratings'){
+            const sortByRatings = [...book].sort((a, b) => b.rating - a.rating );
+            setBook(sortByRatings)
+        }
+        if(sortType === 'book-page'){
+            const sortByRatings = [...book].sort((a, b) => b.totalPages - a.totalPages );
+            setBook(sortByRatings)
+        }
+    }
     return (
         <div className='lg:px-20 lg:py-10'>
             <h1 className='lg:py-10 text-center font-bold lg:text-3xl text-xl bg-slate-300 rounded-xl my-5'>Books</h1>
+            <div className="dropdown  justify-end flex ">
+            <div tabIndex={0} role="button" className="btn m-1 bg-sky-400">
+                {
+                    sort ? `filter: ${sort}` : 'filter'
+                }
+            </div>
+            <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow mt-10">
+                <li onClick={() => handelSort('ratings')}><a>ratings</a></li>
+                <li onClick={() => handelSort('book-page')}><a>book-page</a></li>
+            </ul>
+            </div>
             <Tabs>
                 <TabList>
                 <Tab>Read Books</Tab>

@@ -5,7 +5,7 @@ import { data } from 'autoprefixer';
 const BookData = () => {
     const [book , setBook] = useState([]);
     useEffect(() => {
-        fetch('booksData.json')
+        fetch('/booksData.json')
         .then(response => response.json())
         .then(data => setBook(data))
     }, [])
