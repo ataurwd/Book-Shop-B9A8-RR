@@ -1,15 +1,21 @@
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+// const getStoreList = () => {
+//     const storedList = localStorage.getItem('storedReadList');
+//     if(storedList){
+//         return JSON.parse(storedList);
+//     }
+//     else{
+//         return [];
+//     }
+// }
+
 const getStoreList = () => {
-    const storedList = localStorage.getItem('storedReadList');
-    if(storedList){
-        return JSON.parse(storedList);
-    }
-    else{
-        return [];
-    }
+    return JSON.parse(localStorage.getItem('storedReadList')) || [];
 }
+
+// const addToStoredReadList = (id) => {
 
 const addToStoredReadList = (id) => {
     const storedList = getStoreList();
